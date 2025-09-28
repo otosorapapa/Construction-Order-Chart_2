@@ -4,9 +4,25 @@ from __future__ import annotations
 from typing import List, Optional
 
 import pandas as pd
-import plotly.io as pio
 import streamlit as st
-from streamlit_plotly_events import plotly_events
+
+try:
+    import plotly.io as pio
+except ModuleNotFoundError:  # pragma: no cover - run-time safeguard
+    st.error(
+        "Plotly が見つかりませんでした。アプリを実行する前に "
+        "`pip install -r streamlit-gantt/requirements.txt` を実行してください。"
+    )
+    st.stop()
+
+try:
+    from streamlit_plotly_events import plotly_events
+except ModuleNotFoundError:  # pragma: no cover - run-time safeguard
+    st.error(
+        "streamlit-plotly-events が見つかりませんでした。アプリを実行する前に "
+        "`pip install -r streamlit-gantt/requirements.txt` を実行してください。"
+    )
+    st.stop()
 
 from components import editor, filters, gantt
 from utils import state as state_utils
