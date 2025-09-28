@@ -1,0 +1,6 @@
+streamlit==1.33.0
+pandas==2.2.2
+plotly==5.20.0
+kaleido==0.2.1
+streamlit-plotly-events==0.0.6
+python-dateutil==2.9.0.post0
